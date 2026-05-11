@@ -199,13 +199,13 @@ export function DrillTreeViz({ root, selectedId, onSelect }: VisualizationProps)
       <div className="flex-1 overflow-y-auto">
         {stack.length > 1 && (
           <div
-            className="flex items-center gap-3 px-4 py-2.5 cursor-pointer border-b border-gray-800 select-none hover:bg-gray-800 text-gray-400"
+            className="flex items-center gap-3 pl-6 pr-4 py-2.5 cursor-pointer border-b border-gray-800 select-none hover:bg-gray-800 text-gray-200"
             onClick={() => jumpTo(stack.length - 2)}
           >
-            <span className="text-lg flex-shrink-0">📁</span>
+            <span className="text-lg flex-shrink-0">↑</span>
             <div className="flex-1 min-w-0">
-              <div className="text-sm font-medium">..</div>
-              <div className="text-xs text-gray-600">{stack[stack.length - 2].name}</div>
+              <div className="text-sm font-medium truncate">{stack[stack.length - 2].name}</div>
+              <div className="text-xs text-gray-500">{stack[stack.length - 2].children.length} items</div>
             </div>
           </div>
         )}
@@ -259,7 +259,7 @@ function Row({
 
   return (
     <div
-      className={`flex items-center gap-3 px-4 py-2.5 cursor-pointer border-b border-gray-800 select-none
+      className={`flex items-center gap-3 pl-6 pr-4 py-2.5 cursor-pointer border-b border-gray-800 select-none
         ${isSelected && !group ? "bg-blue-700 text-white" : "hover:bg-gray-800 text-gray-200"}`}
       onClick={handleClick}
     >

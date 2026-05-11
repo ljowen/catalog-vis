@@ -89,7 +89,7 @@ function OBJBuilding({
   const size = isGroup(node.data) ? 1 : (node.data.size ?? 1);
   const type = node.data.type;
   const model = modelName(type, size);
-  const obj = useLoader(OBJLoader, `/OBJ/${model}.obj`);
+  const obj = useLoader(OBJLoader, `${import.meta.env.BASE_URL}OBJ/${model}.obj`);
 
   const cx = (node.x0 + node.x1) / 2 - WORLD / 2;
   const cz = (node.y0 + node.y1) / 2 - WORLD / 2;
